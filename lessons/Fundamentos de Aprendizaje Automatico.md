@@ -28,6 +28,128 @@ El uso de métodos de aprendizaje automático es necesario cuando los problemas 
 
 Estos ejemplos muestran cómo el aprendizaje automático puede aportar valor en distintos sectores, ayudando a resolver problemas complejos y optimizar procesos.
 
+## 0. Conceptos basicos previos al aprendizaje automatico
+
+### 0.1 Estadística Descriptiva y Probabilidad
+
+La estadística descriptiva es el conjunto de técnicas que nos permite **resumir, organizar y analizar datos** para extraer información relevante antes de aplicar modelos de aprendizaje automático. Es el primer paso para comprender la naturaleza de los datos y detectar posibles problemas como valores atípicos, sesgos o distribuciones inusuales.
+
+#### Medidas de Tendencia Central
+
+Las medidas de tendencia central indican el punto alrededor del cual se agrupan los datos:
+
+- **Media (Promedio):** Es la suma de todos los valores dividida por el número de observaciones. Es sensible a valores extremos (outliers).
+  
+  $$ \text{Media} = \frac{1}{n} \sum_{i=1}^{n} x_i $$
+
+- **Mediana:** Es el valor central cuando los datos están ordenados. Es robusta frente a valores atípicos.
+
+- **Moda:** Es el valor que aparece con mayor frecuencia en el conjunto de datos.
+
+#### Medidas de Dispersión
+
+Las medidas de dispersión muestran qué tan dispersos o concentrados están los datos respecto a la tendencia central:
+
+- **Varianza:** Mide el promedio de las diferencias al cuadrado respecto a la media.
+
+  $$ \text{Varianza} = \frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2 $$
+
+- **Desviación estándar:** Es la raíz cuadrada de la varianza, lo que la hace más interpretable porque está en las mismas unidades que los datos.
+
+  $$ \text{Desviación estándar} = \sqrt{\text{Varianza}} $$
+
+- **Rango:** Diferencia entre el valor máximo y mínimo.
+
+#### Distribuciones de Probabilidad
+
+Las distribuciones de probabilidad describen cómo se distribuyen los valores de una variable aleatoria. Son fundamentales para modelar incertidumbre y realizar inferencias estadísticas.
+
+- **Distribución Normal (Gaussiana):** Es la más común en estadística y machine learning. Tiene forma de campana y se caracteriza por su media y desviación estándar.
+
+  $$ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$
+
+  **Ejemplos de uso:**
+  1. Modelar errores de medición en sensores.
+  2. Evaluar el rendimiento académico de estudiantes.
+  3. Analizar fluctuaciones de precios en mercados financieros.
+
+- **Distribución Binomial:** Modela el número de éxitos en una secuencia de ensayos independientes con dos posibles resultados (éxito/fracaso).
+
+  $$ P(X = k) = \binom{n}{k} p^k (1-p)^{n-k} $$
+
+  **Ejemplos de uso:**
+  1. Predecir el número de clientes que compran un producto en una campaña.
+  2. Analizar resultados de pruebas médicas (positivo/negativo).
+  3. Estimar la probabilidad de fallos en componentes electrónicos.
+
+- **Distribución Poisson:** Modela el número de eventos que ocurren en un intervalo de tiempo o espacio fijo, cuando los eventos son raros y ocurren de forma independiente.
+
+  $$ P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!} $$
+
+  **Ejemplos de uso:**
+  1. Contar llamadas recibidas en un call center por hora.
+  2. Analizar la llegada de clientes a una tienda.
+  3. Modelar la aparición de errores en sistemas informáticos.
+
+Estas herramientas permiten entender la estructura y el comportamiento de los datos, facilitando la selección de modelos y técnicas adecuadas para el análisis posterior.
+
+---
+
+### 0.2 Correlación
+
+La **correlación** es una medida estadística que indica la fuerza y dirección de la relación entre dos variables. Es clave para identificar patrones y dependencias antes de construir modelos predictivos, pero es importante recordar que correlación no implica causalidad.
+
+#### Interpretación de la Correlación
+
+El coeficiente de correlación varía entre -1 y +1:
+
+- **+1:** Correlación positiva perfecta (ambas variables aumentan juntas).
+- **0:** Sin correlación (no existe relación aparente).
+- **-1:** Correlación negativa perfecta (una variable aumenta mientras la otra disminuye).
+
+Valores cercanos a ±1 indican relaciones fuertes; valores cercanos a 0 indican relaciones débiles.
+
+#### Cálculo de la Correlación según el tipo de variable
+
+**1. Ambas Variables Numéricas**
+
+- **Coeficiente de Correlación de Pearson (r):** Mide la relación lineal entre dos variables continuas.
+
+  $$
+  r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
+  $$
+
+- **Coeficiente de Correlación de Spearman (ρ):** Mide la relación entre los rangos de dos variables, útil cuando la relación no es lineal o los datos no son normales.
+
+  $$
+  \rho = 1 - \frac{6 \sum_{i=1}^{n} d_i^2}{n(n^2 - 1)}
+  $$
+
+  Donde $d_i$ es la diferencia entre los rangos de cada par de observaciones.
+
+**2. Ambas Variables Categóricas**
+
+- **Prueba Chi-Cuadrado ($\chi^2$):** Evalúa si existe una asociación significativa entre dos variables categóricas usando tablas de contingencia.
+
+- **V de Cramer:** Mide la fuerza de la asociación entre variables categóricas.
+
+  $$
+  V = \sqrt{ \frac{\chi^2}{n \cdot \min(k-1, r-1)} }
+  $$
+
+  Donde $\chi^2$ es el estadístico Chi-Cuadrado, $n$ es el número total de observaciones, $k$ es el número de columnas y $r$ el número de filas.
+
+**3. Una Variable Numérica y una Categórica**
+
+- **Eta Cuadrado ($\eta^2$):** Mide la proporción de la varianza en la variable numérica explicada por la variable categórica.
+
+#### Uso de la Correlación en Regresión
+
+- **Selección de Variables:** Se calcula la correlación entre la variable dependiente y las independientes para identificar las más relevantes.
+- **Detección de Multicolinealidad:** Se analiza la matriz de correlación entre variables independientes; correlaciones altas (ej. > 0.8) pueden causar inestabilidad en los coeficientes del modelo. Se recomienda eliminar o combinar variables altamente correlacionadas para mejorar la robustez del modelo.
+
+La correlación es una herramienta esencial para el análisis exploratorio y la construcción de modelos predictivos sólidos en machine learning.
+
 ---
 
 ## 1. Aprendizaje Supervisado (Supervised Learning)
@@ -210,3 +332,25 @@ Para abordar estos desafíos, se emplean varias estrategias:
 | SMOTE (Synthetic Minority Over-sampling)  | Genera ejemplos sintéticos de la clase minoritaria.| Cuando la clase minoritaria es muy pequeña y el oversampling tradicional no es suficiente.   | Mejora el balance sin duplicar datos; reduce el sobreajuste.| Puede generar ejemplos poco realistas; requiere cuidado en la aplicación.|
 
 Estas técnicas ayudan a construir modelos más robustos y confiables, mitigando los problemas comunes en aprendizaje automático.
+
+
+### 3.6 El Trade-off de Sesgo vs. Varianza (Bias-Variance Tradeoff): 
+
+
+Este es quizás el concepto más importante en machine learning para diagnosticar problemas en un modelo.
+
+Sesgo (Bias): Es el error por suposiciones demasiado simples. Un alto sesgo lleva al underfitting (subajuste), donde el modelo es tan simple que no captura la relación real en los datos.
+
+Varianza (Variance): Es el error por ser demasiado sensible a los datos de entrenamiento. Una alta varianza lleva al overfitting (sobreajuste), donde el modelo "memoriza" los datos de entrenamiento (incluido el ruido) y no generaliza bien a datos nuevos.
+
+El objetivo es encontrar un balance entre ambos.
+
+### 3.7  Preprocesamiento de Datos (Data Preprocessing)
+
+Los datos del mundo real casi nunca vienen "limpios" y listos para usar. El preprocesamiento es el paso de limpieza y preparación.
+
+Manejo de Valores Faltantes: Decidir qué hacer cuando faltan datos en tu dataset (eliminarlos, reemplazarlos con la media o mediana, etc.).
+
+Normalización y Estandarización: Se usan para escalar las variables numéricas a un rango común. Esto es crucial para algoritmos que son sensibles a las diferentes escalas de los datos (como las redes neuronales o SVM).
+
+Codificación de Variables Categóricas: Los modelos matemáticos necesitan números, no texto. Técnicas como One-Hot Encoding (crear columnas binarias para cada categoría) o Label Encoding (asignar un número a cada categoría) son esenciales.
