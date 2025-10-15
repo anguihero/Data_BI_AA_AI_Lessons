@@ -1,3 +1,13 @@
+# Fundamentos de Aprendizaje Automático
+
+**Autor**: AMMS
+
+**Repositorio**: [Repositorio de clases de BI, AA y AI](https://github.com/anguihero/Data_BI_AA_AI_Lessons)
+
+**Fecha Actualización**: 2025/10/14
+
+Este documento presenta una guía concisa sobre los conceptos fundamentales del aprendizaje automático, incluyendo métodos supervisados y no supervisados, algoritmos principales, métricas de evaluación y desafíos comunes. El contenido está diseñado para servir como referencia rápida para estudiantes y profesionales interesados en comprender los principios básicos del machine learning.
+
 # Introducción a Métodos de Aprendizaje Automático
 
 El Aprendizaje Automático (Machine Learning) es un campo de la inteligencia artificial que se centra en el desarrollo de programas informáticos que pueden acceder a datos y utilizarlos para aprender por sí mismos. Se divide fundamentalmente en dos grandes categorías basadas en el tipo de datos de entrenamiento: Supervisado y No Supervisado.
@@ -192,11 +202,11 @@ El **ajuste de hiperparámetros** implica explorar diferentes configuraciones pa
 
 Para abordar estos desafíos, se emplean varias estrategias:
 
-| Método                                   | Descripción                                                                                  | Cuándo Usar                                                                                  | Fortalezas                                                                                   | Debilidades                                                                                  |
-|-------------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| Partición de datos                        | Separar el conjunto en datos de entrenamiento y prueba.                                       | Siempre, para evaluar la capacidad de generalización del modelo.                             | Fácil de implementar; rápida evaluación.                                                     | Puede depender de la partición elegida; no aprovecha todos los datos para entrenamiento.      |
-| Validación cruzada                        | Divide los datos en varias particiones y alterna entrenamiento/validación en cada una.        | Cuando se necesita una evaluación robusta y se dispone de pocos datos.                       | Reduce la varianza de la evaluación; usa todos los datos para entrenamiento y validación.     | Más costosa computacionalmente; puede ser lenta con grandes conjuntos de datos.               |
-| Subsampling y Oversampling                | Disminuir o aumentar muestras de clases para equilibrar el conjunto.                          | Cuando hay desbalance de clases en el conjunto de datos.                                     | Mejora el balance de clases; fácil de aplicar.                                               | Puede eliminar información útil (subsampling) o causar sobreajuste (oversampling).            |
-| SMOTE (Synthetic Minority Over-sampling)  | Genera ejemplos sintéticos de la clase minoritaria.                                           | Cuando la clase minoritaria es muy pequeña y el oversampling tradicional no es suficiente.   | Mejora el balance sin duplicar datos; reduce el sobreajuste.                                 | Puede generar ejemplos poco realistas; requiere cuidado en la aplicación.                     |
+| Método| Descripción| Cuándo Usar| Fortalezas| Debilidades|
+|----------|----------|----------|----------|----------|
+| Partición de datos| Separar el conjunto en datos de entrenamiento y prueba.| Siempre, para evaluar la capacidad de generalización del modelo.| Fácil de implementar; rápida evaluación.| Puede depender de la partición elegida; no aprovecha todos los datos para entrenamiento.|
+| Validación cruzada| Divide los datos en varias particiones y alterna entrenamiento/validación en cada una.| Cuando se necesita una evaluación robusta y se dispone de pocos datos.| Reduce la varianza de la evaluación; usa todos los datos para entrenamiento y validación.| Más costosa computacionalmente; puede ser lenta con grandes conjuntos de datos.|
+| Subsampling y Oversampling| Disminuir o aumentar muestras de clases para equilibrar el conjunto.| Cuando hay desbalance de clases en el conjunto de datos.| Mejora el balance de clases; fácil de aplicar.| Puede eliminar información útil (subsampling) o causar sobreajuste (oversampling).|
+| SMOTE (Synthetic Minority Over-sampling)  | Genera ejemplos sintéticos de la clase minoritaria.| Cuando la clase minoritaria es muy pequeña y el oversampling tradicional no es suficiente.   | Mejora el balance sin duplicar datos; reduce el sobreajuste.| Puede generar ejemplos poco realistas; requiere cuidado en la aplicación.|
 
 Estas técnicas ayudan a construir modelos más robustos y confiables, mitigando los problemas comunes en aprendizaje automático.
