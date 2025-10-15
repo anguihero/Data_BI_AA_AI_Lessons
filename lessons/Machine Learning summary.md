@@ -128,7 +128,7 @@ El **subajuste (underfitting)** ocurre cuando un modelo es demasiado simple para
 
 ### 3.2 Desbalanceo de Clases
 
-![alt text](https://www.researchgate.net/profile/Manisha-Saini-7/publication/372486542/figure/fig1/AS:11431281200476307@1697939957710/Visual-representation-of-imbalanced-and-balanced-class-distributions-for-binary-and.png)
+![alt text](https://cdn.sanity.io/images/31qskqlc/production/a680f0dd5ab72cd0dfb06effd8cdbfa0858ac6a8-850x647.webp?fit=max&auto=format)
 
 El **desbalanceo de clase** aparece cuando algunas clases están representadas por muchas más muestras que otras. Esto puede llevar a que el modelo ignore las clases minoritarias, afectando la precisión y utilidad en aplicaciones críticas (por ejemplo, detección de fraude o enfermedades raras).
 
