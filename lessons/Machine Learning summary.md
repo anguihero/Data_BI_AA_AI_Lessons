@@ -87,7 +87,7 @@ El aprendizaje no supervisado trabaja con datos sin etiquetas. El modelo debe en
 
 El uso principal es:
 
-![alt text](https://www.researchgate.net/publication/371115662/figure/fig1/AS:11431281171335502@1688119614453/Simple-Illustration-of-Main-Types-of-Clustering-Models-Note-A-Center-based.png)
+![alt text](https://scikit-learn.org/0.18/_images/sphx_glr_plot_cluster_comparison_001.png)
 
 * Clustering (Agrupamiento): Agrupar datos similares.
 * Asociación: Descubrir reglas que describen relaciones (ejemplo: análisis de cesta de mercado).
@@ -128,7 +128,7 @@ El **subajuste (underfitting)** ocurre cuando un modelo es demasiado simple para
 
 ### 3.2 Desbalanceo de Clases
 
-![alt text](https://www.researchgate.net/publication/372486542/figure/fig1/AS:11431281200476307@1697939957710/Visual-representation-of-imbalanced-and-balanced-class-distributions-for-binary-and.png)
+![alt text](https://www.researchgate.net/profile/Manisha-Saini-7/publication/372486542/figure/fig1/AS:11431281200476307@1697939957710/Visual-representation-of-imbalanced-and-balanced-class-distributions-for-binary-and.png)
 
 El **desbalanceo de clase** aparece cuando algunas clases están representadas por muchas más muestras que otras. Esto puede llevar a que el modelo ignore las clases minoritarias, afectando la precisión y utilidad en aplicaciones críticas (por ejemplo, detección de fraude o enfermedades raras).
 
