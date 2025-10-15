@@ -22,19 +22,55 @@ Estos ejemplos muestran cómo el aprendizaje automático puede aportar valor en 
 
 ## 1. Aprendizaje Supervisado (Supervised Learning)
 
-El aprendizaje supervisado utiliza un conjunto de datos donde las entradas están emparejadas con sus salidas deseadas (o "etiquetas"). Es como enseñarle a un niño mostrándole un objeto (la entrada) y diciéndole qué es (la salida o etiqueta). El objetivo del modelo es aprender la función que mapea la entrada a la salida. 
+El aprendizaje supervisado utiliza un conjunto de datos donde las entradas están emparejadas con sus salidas deseadas (o **"etiquetas"**). Es como enseñarle a un niño mostrándole un objeto (la entrada) y diciéndole qué es (la salida o etiqueta). El objetivo del modelo es aprender la función que mapea la entrada a la salida. 
 
-Se utiliza para:
+### 1.2 Clasificación
 
-* Clasificación:  La salida es una categoría discreta (ejemplo: clasificar un correo como spam o no spam).
+Los modelos de clasificación son fundamentales en el aprendizaje automático porque permiten asignar elementos a categorías específicas basándose en sus características. Estos modelos analizan datos de entrada y, mediante algoritmos como árboles de decisión, regresión logística o redes neuronales, determinan a qué clase pertenece cada ejemplo. Por ejemplo, en un sistema de detección de spam, el modelo clasifica los correos electrónicos como “spam” o “no spam” según su contenido y otros atributos.
+
+La característica principal de los modelos de clasificación es que la salida es una **categoría discreta**, es decir, el resultado pertenece a un conjunto limitado de clases predefinidas. Esto los diferencia de los modelos de regresión, donde la salida es un valor continuo. Los modelos de clasificación se utilizan en aplicaciones como reconocimiento de imágenes, diagnóstico médico y análisis de sentimientos, donde es esencial identificar a qué grupo pertenece cada dato analizado
 
 ![alt text](https://www.themachinelearners.com/wp-content/uploads/2021/01/1_aE8XLyApqvaQA9B7MWjjlA.png)
 
-* Regresión: La salida es un valor continuo (ejemplo: predecir el precio de una casa).
+1. **Detección de fraude en transacciones:** Clasificar transacciones financieras como fraudulentas o legítimas basándose en patrones de gasto y comportamiento del usuario.
+
+2. **Diagnóstico médico:** Clasificar imágenes radiológicas para determinar si hay presencia de enfermedades como neumonía, tumores o fracturas.
+
+3. **Análisis de sentimientos:** Clasificar reseñas de productos o comentarios en redes sociales como positivos, negativos o neutrales.
+
+4. **Reconocimiento facial:** Identificar y clasificar personas en imágenes para sistemas de seguridad o verificación de identidad.
+
+5. **Filtrado de contenido:** Clasificar contenido web o publicaciones en redes sociales como apropiado o inapropiado para distintas audiencias.
+
+
+### 1.2 Regresión
+
+Los modelos de regresión son fundamentales en el análisis predictivo porque permiten estimar relaciones cuantitativas entre variables. A diferencia de los modelos de clasificación, que asignan categorías discretas, los modelos de regresión generan una salida **continua**, lo que los hace ideales para tareas como predicción de precios, estimación de demanda, o análisis de tendencias. Estos modelos pueden ser simples, como la regresión lineal, donde se asume una relación lineal entre variables, o más complejos, como la regresión polinómica, Ridge, Lasso o incluso regresión basada en redes neuronales, que capturan relaciones no lineales y múltiples interacciones.
+
+La salida **continua** de un modelo de regresión significa que el valor predicho puede tomar cualquier número dentro de un rango, lo que permite una mayor precisión en contextos donde los resultados no se limitan a clases discretas. Por ejemplo, al predecir la temperatura, el ingreso mensual o el tiempo de espera, se requiere un modelo que pueda ajustarse a variaciones sutiles. Además, los modelos de regresión permiten evaluar el impacto de cada variable independiente sobre la variable dependiente, lo que los convierte en herramientas poderosas para la interpretación y la toma de decisiones informadas en entornos científicos, económicos y operativos.
+
+
 ![alt text](https://pub.mdpi-res.com/ijerph/ijerph-15-02907/article_deploy/html/images/ijerph-15-02907-g001.png?1570846772)
 
+Los modelos de regresión son fundamentales en muchas aplicaciones prácticas donde necesitamos predecir valores numéricos continuos. 
 
-### 1.1 Algoritmos 
+Algunos ejemplos destacados incluyen:
+
+1. **Predicción de precios inmobiliarios:** Estimar el valor de una vivienda basándose en características como ubicación, tamaño, número de habitaciones, antigüedad y amenidades cercanas.
+
+![alt text](https://drek4537l1klr.cloudfront.net/serrano/v-4/Figures/image028.png)
+
+2. **Pronóstico de ventas:** Predecir los ingresos futuros de una empresa considerando datos históricos, estacionalidad, tendencias del mercado y variables económicas.
+
+3. **Estimación de consumo energético:** Calcular la demanda energética de edificios basándose en factores como clima, aislamiento, ocupación y sistemas instalados.
+
+4. **Predicción de rendimiento de cultivos:** Estimar la producción agrícola según variables como precipitaciones, temperatura, tipo de suelo y fertilizantes utilizados.
+
+5. **Valoración del impacto ambiental:** Modelar la relación entre emisiones contaminantes y factores como actividad industrial, población y medidas de control para predecir niveles futuros de contaminación.
+
+Estos ejemplos demuestran cómo la regresión permite tomar decisiones informadas en áreas tan diversas como finanzas, planificación urbana, sostenibilidad y agricultura, proporcionando estimaciones numéricas precisas basadas en datos.
+
+### 1.3 Algoritmos 
 
 |Algoritmo|Tipo de Tarea Principal|Descripción Breve|Hiperparámetros Clave|
 |-----------------:|----------------:|-----------------:|---------------|
@@ -48,9 +84,9 @@ Se utiliza para:
 |XGBoost (eXtreme Gradient Boosting)|Clasificación / Regresión|Un algoritmo de boosting muy eficiente y popular que mejora iterativamente un conjunto de modelos débiles (típicamente árboles) para formar un modelo predictivo fuerte.|1. n_estimators: Número de rondas de aumento (número de árboles). 2. learning_rate (η): Tasa de aprendizaje o tamaño del paso en cada iteración. 3. max_depth: Profundidad máxima de cada árbol. 4. gamma (γ): Mínima pérdida de reducción necesaria para hacer una división adicional. 5. subsample: Fracción de muestras aleatorias a utilizar para entrenar cada árbol.|
 
 
-### 1.2 Métricas de Validación
+### 1.4 Métricas de Validación
 
-Las métricas de validación son herramientas fundamentales para evaluar el desempeño de los modelos de aprendizaje automático. Permiten cuantificar qué tan bien un modelo realiza tareas de clasificación o regresión, ayudando a comparar diferentes algoritmos y ajustar sus parámetros para obtener mejores resultados.
+Las métricas de validación son herramientas fundamentales para **evaluar el desempeño de los modelos** de aprendizaje automático. Permiten cuantificar qué tan bien un modelo realiza tareas de clasificación o regresión, ayudando a **comparar diferentes algoritmos** y **ajustar sus parámetros** para obtener mejores resultados.
 
 ![alt text](https://db0dce98.rocketcdn.me/es/files/2024/08/Schema-model_evaluation-42-42.png)
 
@@ -83,15 +119,15 @@ Seleccionar la métrica adecuada depende del problema y del impacto de los error
 
 ## 2. Aprendizaje No Supervisado (Unsupervised Learning)
 
-El aprendizaje no supervisado trabaja con datos sin etiquetas. El modelo debe encontrar patrones, estructuras o relaciones ocultas dentro de los datos por sí mismo. 
+El aprendizaje no supervisado trabaja con datos **sin etiquetas**. El modelo debe encontrar patrones, estructuras o relaciones ocultas dentro de los datos por sí mismo. 
 
 El uso principal es:
 
 ![alt text](https://scikit-learn.org/0.18/_images/sphx_glr_plot_cluster_comparison_001.png)
 
-* Clustering (Agrupamiento): Agrupar datos similares.
-* Asociación: Descubrir reglas que describen relaciones (ejemplo: análisis de cesta de mercado).
-* Reducción de Dimensionalidad: Simplificar los datos.
+* **Clustering (Agrupamiento)**: Agrupar datos similares.
+* **Asociación**: Descubrir reglas que describen relaciones (ejemplo: análisis de cesta de mercado).
+* **Reducción de Dimensionalidad**: Simplificar los datos.
 
 ### 2.1 Algoritmos
 
