@@ -1,0 +1,5 @@
+asignatura|dia|creditos
+Python|Lunes|2
+R|Jueves|1
+SQL|Martes|3
+C#|Sabado|5
