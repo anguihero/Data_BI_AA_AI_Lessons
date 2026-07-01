@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 07: Estadística Aplicada y Preprocesamiento de Datos
@@ -19,11 +18,19 @@ Interpretar estadísticamente un dataset (tendencia central, dispersión, distri
 | 4 | 20 min | Correlación: Pearson vs. Spearman, matriz de correlación/heatmap, correlación no implica causalidad |
 | 5 | 15 min | Detección de outliers con IQR |
 | 6 | 20 min | Manejo de valores faltantes: estrategias de imputación (media/mediana/moda, constante, predictiva) |
-| 7 | 20 min | Codificación de variables categóricas (One-Hot, Label, Ordinal) y escalado (Normalización, Estandarización, Robusto) |
+| 7 | 20 min | Codificación, escalado y laboratorio `fit`/`transform` por tipo de variable |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica directa: [fundamentos de aprendizaje automatico.md § 0](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md) y § 3.7.
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica directa: [fundamentos de aprendizaje automatico.md § 0](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md) y § 3.7.
+
+### Recorrido real del notebook
+
+- Carga selectiva y muestreo de `application_data.csv`.
+- Estadística descriptiva, distribuciones, Pearson/Spearman y outliers con IQR.
+- Imputación, One-Hot/Ordinal Encoding y escalado.
+- Laboratorio por tipo de variable: resúmenes robustos para numéricas, frecuencias para categóricas y separación explícita entre `fit` y `transform`.
+- Fórmulas de estandarización e IQR y revisión de los parámetros aprendidos por imputador y escalador.
 
 **Temas técnicos a cubrir con detalle (cada uno con fortalezas/debilidades):**
 - Media vs. mediana vs. moda: cuándo cada una es engañosa (ej. media con outliers).
@@ -51,6 +58,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Cálculo correcto de medidas de tendencia central y dispersión.
 - Identificación correcta de outliers con IQR.
 - Aplicación correcta de al menos un método de encoding y uno de escalado.
+- Preprocesamiento ajustado únicamente con datos de entrenamiento.
 
 ## 🔗 Prerrequisitos
 

@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 15: Arquitecturas de Redes Neuronales y CNN (MNIST)
@@ -19,11 +18,20 @@ Entender la arquitectura de una red neuronal desde el perceptrón hasta una red 
 | 4 | 15 min | Cargar y explorar el dataset MNIST (imágenes 28x28, 10 clases) |
 | 5 | 25 min | Capas convolucionales y de pooling: `Conv2D`, `MaxPooling2D` — qué "ve" un filtro convolucional |
 | 6 | 25 min | Construir y entrenar una CNN pequeña con Keras/TensorFlow sobre MNIST (pocas épocas, con GPU de Colab) |
-| 7 | 10 min | Evaluar el modelo: accuracy, matriz de confusión, visualizar predicciones correctas e incorrectas |
+| 7 | 10 min | Evaluación y laboratorio de pérdida, gradientes y optimizador |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: `notebooks/backup/fundamentos_redes_neuronales.ipynb` y `notebooks/backup/cnn_redes_convolucionales.ipynb` como base a actualizar.
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16).
+
+### Recorrido real del notebook
+
+- Perceptrón, redes densas, activaciones ReLU/sigmoide/softmax y MNIST.
+- Entrenamiento y evaluación de un MLP.
+- Construcción de una CNN con `Conv2D`, `MaxPooling2D`, `Flatten`, `Dense` y `Dropout`.
+- Matriz de confusión y revisión visual de errores.
+- Laboratorio de logits, softmax, entropía cruzada y una actualización manual con `GradientTape`.
+- Configuración de Adam y análisis de filtros, kernel, batch, épocas, tasa de aprendizaje y parámetros entrenables.
 
 **Por cada bloque conceptual (Perceptrón, MLP, CNN), cubrir:**
 - Teoría técnica: qué resuelve cada arquitectura y por qué la anterior no bastaba (perceptrón solo separa linealmente → MLP con capas ocultas captura no linealidad → CNN aprovecha la estructura espacial de una imagen en vez de "aplanarla" ingenuamente).
@@ -50,6 +58,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - CNN entrenada exitosamente con accuracy razonable (> 95% es alcanzable fácilmente en MNIST).
 - Evaluación con matriz de confusión y visualización de errores.
 - Comprensión demostrada de la diferencia entre MLP y CNN (explicada en una celda de Markdown propia).
+- Lectura de curvas de pérdida/validación y explicación del papel de backpropagation y del optimizador.
 
 ## 🔗 Prerrequisitos
 

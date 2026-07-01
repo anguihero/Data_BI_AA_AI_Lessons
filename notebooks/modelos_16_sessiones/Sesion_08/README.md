@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 08: Métodos de Regresión
@@ -19,11 +18,19 @@ Construir y evaluar modelos de regresión para predecir valores continuos, enten
 | 4 | 15 min | Regresión Polinómica: cuándo una relación no es lineal |
 | 5 | 20 min | Regularización: Ridge (L2) y Lasso (L1) — qué problema resuelven (multicolinealidad, overfitting) |
 | 6 | 20 min | Métricas de regresión: MAE, MSE, RMSE, R² — cómo interpretarlas y cuál priorizar |
-| 7 | 15 min | Reto guiado: comparar Lineal vs. Ridge vs. Lasso sobre el mismo dataset |
+| 7 | 15 min | Laboratorio MSE/descenso por gradiente y comparación Lineal, Ridge y Lasso |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 1.2 y 1.3](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 1.2 y 1.3](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- Carga de `load_diabetes` y separación train/test.
+- Regresión lineal, transformación polinómica, Ridge y Lasso.
+- Comparación con MAE, MSE, RMSE y R².
+- Laboratorio matemático de MSE y descenso por gradiente: pérdida inicial, cálculo de `dw`/`db`, tasa de aprendizaje e historial de convergencia.
+- Relación entre `degree`, `alpha`, regularización y coeficientes aprendidos.
 
 **Por cada método (Lineal, Polinómica, Ridge, Lasso), cubrir:**
 - Teoría técnica: fórmula, supuestos, hiperparámetros clave (`alpha` en Ridge/Lasso, `degree` en polinómica).
@@ -48,6 +55,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - `train_test_split` aplicado correctamente (sin fuga de datos).
 - Al menos 2 modelos de regresión entrenados y comparados con las 4 métricas (MAE/MSE/RMSE/R²).
 - Interpretación escrita de qué métrica es más relevante para el caso de uso elegido.
+- Explicación de la diferencia entre coeficientes aprendidos y los hiperparámetros `alpha`, `degree` o tasa de aprendizaje.
 
 ## 🔗 Prerrequisitos
 

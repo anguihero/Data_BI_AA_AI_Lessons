@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 14: Optimización de Hiperparámetros
@@ -18,11 +17,20 @@ Afinar el mejor modelo/pipeline obtenido hasta ahora usando distintas estrategia
 | 3 | 25 min | Random Search (`RandomizedSearchCV`): muestreo aleatorio/estocástico del espacio de búsqueda, por qué suele ser más eficiente que Grid Search |
 | 4 | 30 min | Optimización Bayesiana con Optuna: cómo aprende de iteraciones previas para explorar mejor el espacio, `study.optimize()` |
 | 5 | 20 min | Comparar los 3 métodos: tiempo de ejecución vs. mejora en la métrica, sobre el pipeline de la Sesión 13 |
-| 6 | 10 min | Reto guiado + cierre del bloque de ML clásico |
+| 6 | 10 min | Laboratorio de presupuesto/`cv_results_` y cierre del bloque |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 3.4](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 3.4](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- Pipeline base con `RandomForestRegressor` y `load_diabetes`.
+- Búsqueda con `GridSearchCV`, `RandomizedSearchCV` y Optuna.
+- Comparación de mejor R² y tiempo de ejecución.
+- Laboratorio sobre función objetivo de validación cruzada, tamaño de la grilla y presupuesto de ajustes.
+- Exploración de `cv_results_`: ranking, media, desviación, tiempo y parámetros.
+- Revisión de `scoring`, `cv`, `refit`, `n_jobs`, `n_iter`, `random_state` y `n_trials`.
 
 **Por cada estrategia (Grid Search, Random Search, Optuna/Bayesiana), cubrir:**
 - Teoría técnica: cómo funciona, parámetros de configuración (`param_grid`, `n_iter`, `n_trials`).
@@ -30,7 +38,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Código ya escrito ejecutando cada búsqueda sobre el mismo pipeline/modelo, para comparar resultados en igualdad de condiciones.
 - Resumen para dummies: "Grid si tienes pocas combinaciones y tiempo; Random si tienes muchas combinaciones; Bayesiana si quieres lo mejor de ambos mundos y tienes Optuna instalado".
 
-**Nota conceptual sobre "búsqueda estocástica":** se explica que el muestreo aleatorio de Random Search ya es, en esencia, una forma de búsqueda estocástica del espacio de hiperparámetros, evitando así introducir un cuarto método redundante.
+Random Search representa la búsqueda estocástica mediante muestreo aleatorio del espacio de hiperparámetros.
 
 **Aplicaciones del mundo real a mencionar:** cómo equipos de ML deciden cuánto tiempo de cómputo invertir en tuning antes de llevar un modelo a producción.
 
@@ -49,6 +57,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Implementación correcta de al menos 2 de las 3 estrategias de tuning.
 - Comparación explícita de tiempo de ejecución y mejora en la métrica.
 - Selección justificada de la configuración final de hiperparámetros.
+- Evaluación final separada del proceso de búsqueda para evitar sobreajuste al conjunto de prueba.
 
 ## 🔗 Prerrequisitos
 

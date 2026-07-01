@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 16: LLMs y NLP Aplicado en Python (100% gratuito)
@@ -19,11 +18,21 @@ Usar un modelo de lenguaje (LLM) vía API gratuita y un modelo descargado de Hug
 | 4 | 20 min | Prompt Engineering básico: zero-shot, few-shot, Chain-of-Thought — aplicado a un caso real (ej. clasificar el sentimiento de reseñas) |
 | 5 | 25 min | Hugging Face `transformers`: `pipeline("text-classification")` y `pipeline("ner")` con un modelo descargado localmente (sin API, sin costo) |
 | 6 | 20 min | Comparar los dos enfoques (LLM vía API vs. modelo Hugging Face local) sobre el mismo texto: velocidad, calidad, control |
-| 7 | 10 min | Cierre del curso: recapitulación de la ruta completa (Sesiones 1-16) y próximos pasos sugeridos |
+| 7 | 10 min | Laboratorio de tokenización/parámetros de inferencia y cierre del curso |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de llm.md](../../../background/esp/fundamentos%20de%20llm.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de llm.md](../../../background/esp/fundamentos%20de%20llm.md).
+
+### Recorrido real del notebook
+
+- Tokenización, embeddings y atención a nivel introductorio.
+- Configuración segura de Gemini mediante Secrets de Colab.
+- Prompts zero-shot y few-shot para sentimiento.
+- Pipelines de Hugging Face para sentimiento multilingüe y NER en español.
+- Comparación tabular entre API y modelo descargado.
+- Laboratorio de tokens, IDs, `attention_mask`, padding y truncamiento con `AutoTokenizer`.
+- Parámetros de inferencia: longitud máxima, `temperature`, `top_p`, dispositivo, lotes y agregación de entidades.
 
 **Por cada enfoque (API Gemini, Hugging Face local), cubrir:**
 - Teoría técnica: qué es un LLM decoder-only (Gemini/GPT) vs. un modelo encoder-only (BERT, usado típicamente en clasificación/NER de Hugging Face), diferencia entre "consumir" un modelo por API vs. "descargarlo y correrlo" localmente.
@@ -39,8 +48,8 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 
 ## 📦 Dataset(s)
 
-- Textos cortos de ejemplo (reseñas de producto, tickets de soporte, noticias) generados dentro del propio notebook o tomados de `exercises/AI_Impact_Student_Life_2026 - Copy.csv` si contiene texto libre.
-- Opcional: un dataset de texto descargado de Kaggle (usando lo aprendido en la Sesión 04) para el reto avanzado.
+- Tres reseñas breves en español y un texto de noticia definidos dentro del notebook.
+- Para los retos puede emplearse un conjunto adicional de reseñas o noticias, respetando privacidad, licencia y límites de la API.
 
 ## 🏆 Retos de Práctica
 
@@ -53,6 +62,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Uso exitoso y gratuito de la API de Gemini (key configurada de forma segura, no expuesta en texto plano).
 - Uso exitoso de al menos un pipeline de Hugging Face (clasificación o NER).
 - Comparación escrita entre ambos enfoques (API vs. modelo local).
+- Explicación del efecto de tokenización y parámetros de inferencia, además de una validación crítica de las salidas.
 
 ## 🔗 Prerrequisitos
 

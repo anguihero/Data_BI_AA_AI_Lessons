@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 05: Pandas II — Data Wrangling
@@ -19,11 +18,19 @@ Transformar, combinar y limpiar datasets reales usando las operaciones de Pandas
 | 4 | 20 min | Tablas dinámicas: `pivot_table` |
 | 5 | 20 min | Valores faltantes: `isna()`, `dropna()`, `fillna()` (introducción; el detalle de estrategias de imputación se profundiza en la Sesión 07) |
 | 6 | 15 min | Creación de columnas derivadas: `apply`, `map`, operaciones vectorizadas, extracción de componentes de fecha (`dt.month`, `dt.dayofweek`) |
-| 7 | 10 min | Reto guiado de cierre |
+| 7 | 10 min | Laboratorio `agg`/`transform`, validación de uniones y reto |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16).
+
+### Recorrido real del notebook
+
+- `groupby` con agregaciones simples y múltiples.
+- Combinación de tablas con `merge` y `concat`; reorganización con `pivot_table`.
+- Diagnóstico y tratamiento inicial de valores faltantes.
+- Creación de variables con operaciones vectorizadas, `map`, `apply` y accesores de fecha.
+- Laboratorio de `agg` frente a `transform`, diferencias respecto a la media del grupo y uniones auditables con `validate` e `indicator`.
 
 **Temas técnicos a cubrir con detalle:**
 - `groupby` como el equivalente de "resumir por categoría" — comparar contra la alternativa manual con diccionarios vista en la Sesión 03.
@@ -36,8 +43,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 
 ## 📦 Dataset(s)
 
-- `data/Salary_Dataset_with_Extra_Features/Salary_Dataset_with_Extra_Features.csv` (para agregaciones y creación de columnas).
-- Opcional: combinar con un segundo dataset pequeño creado en el notebook para practicar `merge`/`concat` (ej. tabla de "rangos salariales por país").
+- Tablas sintéticas de ventas, vendedores, ventas mensuales y regiones construidas en el notebook. Esto permite concentrarse en las operaciones y observar con claridad el efecto de cada transformación.
 
 ## 🏆 Retos de Práctica
 
@@ -50,6 +56,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Uso correcto de `groupby` con al menos una función de agregación.
 - Al menos un `merge` o `concat` ejecutado correctamente.
 - Al menos una columna nueva creada con `apply`/`map`.
+- Uso de `validate` o `indicator` para comprobar una unión.
 
 ## 🔗 Prerrequisitos
 

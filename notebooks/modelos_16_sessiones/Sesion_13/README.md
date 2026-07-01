@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 13: Pipeline Completo de ML (End-to-End)
@@ -18,11 +17,20 @@ Construir un pipeline reproducible que encapsule todo el preprocesamiento y el m
 | 3 | 30 min | `ColumnTransformer`: aplicar transformaciones distintas a columnas numéricas y categóricas dentro del mismo pipeline |
 | 4 | 20 min | Integrar el pipeline con `cross_val_score` — por qué esto previene el data leakage (el escalado/imputación se recalculan en cada fold) |
 | 5 | 20 min | Recrear con `Pipeline` uno de los flujos manuales de sesiones anteriores (ej. regresión o clasificación) y comparar resultados |
-| 6 | 15 min | Reto guiado: pipeline completo sobre un dataset nuevo |
+| 6 | 15 min | Laboratorio de la API de estimadores y reto de pipeline completo |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 3.5 y 4.3](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 3.5 y 4.3](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- Ejemplo del riesgo de data leakage.
+- Pipeline `StandardScaler` + Ridge y `ColumnTransformer` para columnas numéricas.
+- Evaluación del pipeline completo con `cross_val_score`.
+- Reconstrucción y persistencia del modelo final con `joblib`.
+- Laboratorio de la API `fit`/`transform`/`predict`, parámetros anidados con `get_params()`/`set_params()` y atributos aprendidos.
+- Extensión conceptual a ramas numéricas y categóricas con imputación y One-Hot Encoding.
 
 **Contenido técnico a cubrir con detalle:**
 - Por qué hacer `fit_transform` en todo el dataset antes del split es un error de data leakage (recordar la advertencia del doc base § 3.5), y cómo `Pipeline` + `cross_val_score` lo resuelve automáticamente.
@@ -48,6 +56,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - `Pipeline` funcional que incluye al menos preprocesamiento + modelo.
 - Uso de `ColumnTransformer` para tratar numéricas y categóricas por separado.
 - Validación con `cross_val_score` sobre el pipeline completo (no sobre datos ya preprocesados manualmente).
+- Inspección y modificación correcta de hiperparámetros con la sintaxis `paso__parametro`.
 
 ## 🔗 Prerrequisitos
 

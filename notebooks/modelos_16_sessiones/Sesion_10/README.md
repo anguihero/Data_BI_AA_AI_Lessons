@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 10: Ensambles y Benchmarking de Modelos
@@ -19,11 +18,19 @@ Entender los métodos de ensamble (Random Forest, Boosting, XGBoost) y aprender 
 | 4 | 20 min | XGBoost: por qué es tan usado, hiperparámetros clave (`n_estimators`, `learning_rate`, `max_depth`, `subsample`) |
 | 5 | 20 min | Validación cruzada k-fold: `cross_val_score`, por qué es más robusta que un solo `train_test_split` |
 | 6 | 20 min | **Benchmarking**: construir una tabla comparativa de 4-5 modelos (de las Sesiones 08-10) con su media y desviación estándar de la métrica elegida |
-| 7 | 10 min | Reto guiado: elegir el "modelo campeón" con justificación |
+| 7 | 10 min | Laboratorio de residuos/boosting y selección justificada del modelo |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 1.3 y 3.5](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 1.3 y 3.5](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- Random Forest, Gradient Boosting y XGBoost sobre `load_breast_cancer`.
+- Validación cruzada y función reutilizable para comparar modelos.
+- Benchmarking de modelos individuales y ensambles mediante media y desviación.
+- Laboratorio sobre residuos, pérdida cuadrática y la interpretación de boosting como descenso por gradiente en el espacio de funciones.
+- Validación estratificada común y comparación de accuracy, F1, ROC-AUC y tiempo.
 
 **Por cada método (Random Forest, Boosting, XGBoost), cubrir:**
 - Teoría técnica: Bagging vs. Boosting (paralelo vs. secuencial), hiperparámetros clave y su efecto.
@@ -50,6 +57,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Al menos 2 modelos de ensamble entrenados correctamente.
 - Uso correcto de `cross_val_score` (no solo un único split).
 - Tabla de benchmarking con al menos 4 modelos comparados y una conclusión justificada sobre cuál elegir.
+- Uso de los mismos folds y métricas para todos los candidatos.
 
 ## 🔗 Prerrequisitos
 

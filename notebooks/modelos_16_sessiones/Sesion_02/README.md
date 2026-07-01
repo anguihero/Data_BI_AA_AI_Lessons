@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 02: Bases de Python I
@@ -18,11 +17,18 @@ Escribir programas Python básicos usando variables, tipos de datos, operadores 
 | 3 | 20 min | Operadores aritméticos, de comparación y lógicos |
 | 4 | 25 min | Estructuras condicionales: `if` / `elif` / `else` |
 | 5 | 25 min | Bucles: `for` y `while`, `break`/`continue` |
-| 6 | 15 min | Funciones simples: `def`, parámetros, `return` |
+| 6 | 15 min | Funciones, parámetros y laboratorio de métodos según el tipo de dato |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16): portada + TOC, introducción para dummies (¿por qué programar en ciencia de datos?), y por cada bloque de la agenda: teoría + código intercalado + resumen para dummies.
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16): portada + TOC, introducción para dummies, teoría, código intercalado y resúmenes aplicados.
+
+### Recorrido real del notebook
+
+- Variables y tipos `str`, `int`, `float` y `bool`; `type()` y conversión.
+- Operadores aritméticos, comparaciones y lógica booleana.
+- Condicionales, ciclos `for`/`while` y funciones con parámetros y `return`.
+- Laboratorio de métodos de texto (`strip`, `lower`, `replace`), operaciones numéricas, booleanos y validación de parámetros con `ValueError`.
 
 **Temas técnicos a cubrir con detalle:**
 - Tipos de datos primitivos y mutabilidad básica.
@@ -48,6 +54,7 @@ No aplica — sesión de fundamentos de lenguaje, sin datos externos.
 - Uso correcto de al menos 3 tipos de datos distintos.
 - Al menos una función propia con parámetros y `return`.
 - Código que corre sin errores en Colab.
+- Uso apropiado de métodos o funciones según el tipo de dato.
 
 ## 🔗 Prerrequisitos
 

@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 11: Clustering y Segmentación
@@ -19,11 +18,20 @@ Agrupar datos sin etiquetas usando algoritmos de clustering, y evaluar objetivam
 | 4 | 20 min | Clustering Jerárquico: dendrograma, tipos de `linkage` |
 | 5 | 20 min | DBSCAN: clusters de forma arbitraria y detección de ruido/outliers |
 | 6 | 15 min | Métricas internas: Silhouette Score, Davies-Bouldin, Calinski-Harabasz |
-| 7 | 10 min | Reto guiado: segmentar un dataset y perfilar cada cluster |
+| 7 | 10 min | Iteración manual de K-Means, segmentación y perfilado |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 2.1 y 2.4](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 2.1 y 2.4](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- K-Means con `make_blobs`, centroides, inercia y Método del Codo.
+- Segmentación de `Mall_Customers.csv` con escalado.
+- Clustering jerárquico, dendrograma, DBSCAN y detección de ruido.
+- Silhouette, Davies-Bouldin y perfilado descriptivo de clusters.
+- Laboratorio de una iteración manual de K-Means: distancias, asignación, actualización de centroides e inercia.
+- Revisión de `n_clusters`, `init`, `n_init`, `eps`, `min_samples`, `linkage` y atributos aprendidos.
 
 **Por cada método (K-Means, Jerárquico, DBSCAN), cubrir:**
 - Teoría técnica: hiperparámetros clave (`n_clusters`, `linkage`, `eps`/`min_samples`).
@@ -51,6 +59,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Escalado correcto de las variables antes de clusterizar.
 - Uso del Método del Codo o Silhouette Score para justificar el número de clusters.
 - Interpretación de negocio de al menos 2 clusters resultantes ("¿quiénes son los clientes del cluster 1?").
+- Explicación de cómo el escalado y los hiperparámetros modifican la segmentación.
 
 ## 🔗 Prerrequisitos
 

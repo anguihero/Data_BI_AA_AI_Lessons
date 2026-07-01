@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 12: Reducción de Dimensionalidad y Selección de Variables
@@ -18,11 +17,20 @@ Simplificar datasets de alta dimensionalidad preservando la mayor información p
 | 3 | 20 min | t-SNE: reducción no lineal para visualización 2D/3D, diferencias con PCA |
 | 4 | 20 min | Métodos de Filtro: correlación con la variable objetivo, varianza, pruebas estadísticas (Chi-cuadrado, ANOVA) |
 | 5 | 20 min | Métodos Envolventes y Embebidos: Recursive Feature Elimination (RFE), Lasso como selector implícito |
-| 6 | 20 min | Reto guiado: reducir un dataset de muchas variables a sus componentes principales y visualizarlo en 2D |
+| 6 | 20 min | Laboratorio de covarianza/eigenvectores y reto de reducción a 2D |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 2.2 y 3.7.5](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 2.2 y 3.7.5](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- PCA sobre `load_diabetes`, curva de varianza acumulada y proyección en dos componentes.
+- t-SNE como visualización no lineal.
+- Selección por filtro, RFE y Lasso.
+- Laboratorio de centrado, matriz de covarianza y eigenvectores con un ejemplo bidimensional.
+- Inspección de `components_`, `explained_variance_ratio_`, `n_components_` y parámetros de PCA/t-SNE.
+- Distinción entre crear componentes nuevos y conservar variables originales.
 
 **Por cada técnica (PCA, t-SNE, Filtro, Wrapper/RFE, Embebido/Lasso), cubrir:**
 - Teoría técnica: pasos del algoritmo (para PCA: estandarizar → matriz de covarianza → eigenvectores/eigenvalues → proyectar), hiperparámetros clave (`n_components`, `perplexity` en t-SNE).
@@ -49,6 +57,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Aplicación correcta de PCA con estandarización previa.
 - Interpretación correcta de la varianza explicada acumulada.
 - Al menos un método de selección de variables aplicado y justificado.
+- Ajuste del reductor o selector únicamente con los datos de entrenamiento cuando participe en predicción.
 
 ## 🔗 Prerrequisitos
 

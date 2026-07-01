@@ -1,154 +1,223 @@
 ---
 Autor: anmmunozsa@outlook.es
-Fecha: 2026-07-01
-Estado: Paso 1 (ruta) y Paso 2 (detalle por sesión) completos — Paso 3 (notebooks) pendiente
+Fecha de actualización: 2026-07-01
 ---
 
-# Ruta de Aprendizaje — Modelos de Analítica (16 Sesiones x 2 horas)
+# Ruta de Aprendizaje — Modelos de Analítica
 
-## 0. Objetivo General
+## 1. Propósito
 
-Formar a los participantes en un recorrido **práctico y escrito en Python** que va desde los fundamentos de ciencia de datos hasta la construcción de un pipeline completo de Machine Learning con selección y ajuste de modelos, pasando por redes neuronales/CNN, y cerrando con una introducción aplicada a LLMs/NLP. Cada sesión combina teoría + práctica guiada + retos, con un **formato de notebook estandarizado** (ver sección 4).
+Esta ruta desarrolla competencias prácticas de análisis de datos y modelado en Python. Comienza con ciencia de datos, Colab, Markdown y programación; continúa con Pandas, visualización, estadística y aprendizaje automático; integra pipelines y optimización; y cierra con redes neuronales, CNN y procesamiento de lenguaje natural.
 
-**Duración total:** 16 sesiones × 2 horas = 32 horas.
-**Modalidad de entrega:** 100% Google Colab. **Ninguna herramienta requiere costo ni tarjeta de crédito** — requisito explícito confirmado en esta revisión.
-**Documento de referencia teórica base:** [background/esp/fundamentos de aprendizaje automatico.md](../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md) y [background/esp/fundamentos de llm.md](../../background/esp/fundamentos%20de%20llm.md).
+- **Duración:** 16 sesiones de 2 horas, 32 horas en total.
+- **Entorno:** Google Colab.
+- **Metodología:** explicación conceptual, fundamento técnico, código ejecutable paso a paso, interpretación y retos.
+- **Material:** 16 notebooks, uno por sesión.
 
-### Cambios incorporados en esta revisión (v2)
-
-1. **Nueva sesión de Redes Neuronales y CNN** (Sesión 15): arquitecturas de red desde el perceptrón hasta una red neuronal convolucional entrenada para clasificar dígitos MNIST.
-2. **APIs 100% gratuitas**: para la Sesión 16 se descarta cualquier API de pago. Se usará la **API gratuita de Google Gemini** (a través de Google AI Studio — se obtiene una API key sin tarjeta de crédito, y encaja naturalmente con Google Colab) como opción principal, y **Hugging Face `transformers`** (modelo descargado y ejecutado localmente en el notebook, sin API ni costo) para clasificación de texto y NER.
-3. **Kaggle API**: se agrega un instructivo de registro en Kaggle y uso de su API en Python (`kagglehub` / `kaggle.json`) para descargar datasets. Se integra en la **Sesión 4** (donde se enseña la carga de datos), de modo que desde ahí en adelante cada sesión de modelado puede usar datasets de Kaggle que tú selecciones.
-4. **Folium se fusiona en la Sesión 6**: la sesión de visualización ahora cubre Matplotlib/Seaborn, **Plotly** (gráficos interactivos) **y** Folium (mapas con marcadores y mapas de calor) en un solo bloque dedicado exclusivamente a "generar visualizaciones" (sin profundizar en interpretación estadística, que queda en la Sesión 7). Esto libera el cupo que ahora ocupa la nueva sesión de redes neuronales, manteniendo el total en 16 sesiones.
-5. **Sesión 1 ampliada**: ahora incluye explícitamente "¿Qué es Python?", instalación/uso vía Google Colab (sin instalación local requerida) y bases de Markdown — sigue siendo la única sesión **sin notebook** (es introductoria/conceptual).
-6. **Formato estándar de notebook** definido para las Sesiones 2–16 (ver sección 4): storytelling en Markdown con tabla de contenido, explicación teórica "para dummies" + técnica detallada por método (fortalezas/debilidades), código ya escrito ejecutándose mientras se explica, resumen aplicado final, y retos de práctica en 3 niveles (básico/medio/avanzado).
-
----
-
-## 1. Lógica de la Progresión
+## 2. Progresión
 
 ```text
-[Fundamentos]              [Herramientas]                    [Prep. + Supervisado]                              [No Supervisado]        [Integración]                    [Deep Learning + Cierre]
-S01 DS+Python+Markdown → S02-03 Python → S04 Pandas+Kaggle API → S05 Pandas Wrangling → S06 Viz (Matplotlib+Folium)
-                                                                                              ↓
-                                                        S07 Estadística+Preprocesamiento → S08 Regresión → S09 Clasificación → S10 Ensambles+Benchmarking
-                                                                                              ↓
-                                                        S11 Clustering → S12 Reducción de Dimensionalidad
-                                                                                              ↓
-                                                        S13 Pipeline End-to-End → S14 Tuning (Grid/Random/Bayesiano)
-                                                                                              ↓
-                                                        S15 Redes Neuronales y CNN (MNIST) → S16 LLM/NLP aplicado (APIs gratuitas)
+Fundamentos
+S01 Ciencia de datos + Colab + Markdown
+  ↓
+Programación y datos
+S02 Python I → S03 Python II → S04 Pandas I + Kaggle → S05 Wrangling → S06 Visualización
+  ↓
+Preparación y modelos
+S07 Estadística + Preprocesamiento → S08 Regresión → S09 Clasificación → S10 Ensambles
+  ↓
+Aprendizaje no supervisado
+S11 Clustering → S12 Reducción de dimensionalidad y selección
+  ↓
+Integración
+S13 Pipelines → S14 Optimización de hiperparámetros
+  ↓
+Deep Learning y NLP
+S15 Redes neuronales + CNN → S16 LLM y NLP aplicado
 ```
 
-**Por qué este orden:**
+La secuencia introduce primero el lenguaje y las estructuras de datos. Después desarrolla preparación, evaluación y modelos clásicos. Los pipelines y la optimización aparecen cuando el estudiante ya conoce preprocesamiento y varios estimadores. Redes neuronales y NLP cierran la ruta como extensiones hacia datos no tabulares.
 
-- Python y Pandas van primero porque son prerrequisito de todo lo demás. La Sesión 4 (Pandas I) es también el mejor momento para enseñar la API de Kaggle, porque "cargar datos" es exactamente el tema de esa sesión, y de ahí en adelante cada sesión de modelado puede alimentarse de datasets reales que tú elijas en Kaggle.
-- La Sesión 6 concentra **toda** la generación de gráficos (estadísticos con Matplotlib/Seaborn y geoespaciales con Folium) como una sola habilidad de "visualización", separada de la interpretación estadística profunda (correlación, distribuciones, outliers), que se enseña en la Sesión 7 justo antes de empezar a modelar.
-- Regresión → Clasificación → Ensambles/Benchmarking sigue la progresión de complejidad de modelos supervisados, cerrando con benchmarking (comparación objetiva de modelos), que es justo lo pedido como "ajuste de varios modelos y selección".
-- Clustering y reducción de dimensionalidad (no supervisado) se dejan después de dominar el supervisado, para contrastar "con etiqueta" vs "sin etiqueta".
-- Pipeline completo y tuning de hiperparámetros integran todo el bloque de ML clásico (requieren ya conocer regresión, clasificación y preprocesamiento).
-- **Redes Neuronales/CNN se ubica justo antes de LLM** porque son la puerta de entrada natural al Deep Learning: primero se entienden arquitecturas de red "clásicas" (perceptrón, red densa, CNN) entrenando un modelo propio (MNIST), y luego se da el salto conceptual a los Transformers/LLMs en la Sesión 16, que son también redes neuronales pero ya pre-entrenadas y consumidas vía API o modelo descargado.
+## 3. Detalle de las sesiones
 
----
+### Sesión 01 — Ciencia de Datos, Python, Colab y Markdown
 
-## 2. Tabla Resumen de las 16 Sesiones
+**Objetivo:** comprender el ciclo de un proyecto de datos y comenzar a trabajar en un notebook reproducible.
 
-| # | Título de Sesión | Bloque temático | Objetivo de aprendizaje | Temas clave | Material base a reutilizar |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Bienvenida: Ciencia de Datos, Python y Markdown en Colab | Fundamentos *(sin notebook)* | Entender qué es la ciencia de datos, qué es Python y cómo documentar análisis en Markdown, todo dentro de Google Colab | ¿Qué es la ciencia de datos?, tipos de aprendizaje (sup/no sup/refuerzo), CRISP-DM, ¿qué es Python?, uso de Google Colab (sin instalación local), sintaxis Markdown | `img/crispdm_process.png`, `exercises/000_notebook_markdown.ipynb`, `exercises/Markdown/taller_de_markdown.ipynb`, `Retos_AA_8/Sesion_01` |
-| 2 | Bases de Python I | Herramientas | Escribir programas Python básicos: variables, tipos, operadores, control de flujo | Variables, tipos de dato, condicionales, bucles, funciones simples | `notebooks/DS_route/001_python_basic_shortstory.ipynb`, `Retos_AA_8/Sesion_02` |
-| 3 | Bases de Python II | Herramientas | Usar estructuras de datos y funciones avanzadas para preparar el terreno a Pandas | Listas, tuplas, diccionarios, comprehensions, funciones, manejo de errores, lectura de archivos | `notebooks/DS_route/001_python_basic_longstory.ipynb`, `Retos_AA_8/Sesion_03` |
-| 4 | Pandas I — Series, DataFrames y Obtención de Datos | Herramientas | Cargar, explorar y filtrar datos tabulares, incluyendo datasets descargados de Kaggle | Series, DataFrame, lectura CSV/Excel, indexing, filtrado, tipos de variable, **registro en Kaggle y uso de su API (`kagglehub`/`kaggle.json`) para descargar datasets** | `notebooks/DS_route/002_pandas_shortstory.ipynb`, `Retos_AA_8/Sesion_04`, `Retos_AA_8/Sesion_05` |
-| 5 | Pandas II — Data Wrangling | Herramientas | Transformar y combinar datasets reales | GroupBy, merge/join, pivot, valores faltantes, creación de columnas (feature engineering básico) | `exercises/data_wrangling/datawrangling.ipynb` |
-| 6 | Visualización de Datos: Matplotlib, Seaborn, Plotly y Folium | Herramientas | Generar visualizaciones estadísticas (estáticas e interactivas) y geoespaciales (solo generación de gráficos, sin profundizar en interpretación estadística) | Histogramas, boxplots, scatter, gráficos de barras, heatmaps de correlación (Matplotlib/Seaborn); **gráficos interactivos con Plotly**; **mapas con Folium: marcadores y mapas de calor** | `notebooks/DS_route/003_EDA_Exploracion.ipynb` (como referencia de gráficos), *(nuevo)* dataset con coordenadas para Folium/Plotly |
-| 7 | Estadística Aplicada y Preprocesamiento de Datos | Preparación | Interpretar estadísticamente los datos y prepararlos para modelar | Estadística descriptiva, distribuciones, correlación, outliers (IQR), imputación de faltantes, encoding categórico, escalado | `notebooks/backup/001_distribuciones_probabilidad.ipynb`, `notebooks/backup/002_analisis_correlacion_anova.ipynb`, doc base secciones 0 y 3.7 |
-| 8 | Métodos de Regresión | Modelos supervisados | Predecir valores continuos y evaluar con métricas de regresión | Regresión lineal simple/múltiple, polinómica, Ridge/Lasso, MAE/MSE/RMSE/R² | `notebooks/DS_route/004_Analisis_de_regresion.ipynb`, `notebooks/backup/003_regresion_lineal_multiple.ipynb`, `notebooks/backup/regularizacion_modelos_lineales.ipynb` |
-| 9 | Métodos de Clasificación | Modelos supervisados | Predecir categorías y evaluar con matriz de confusión y métricas | Regresión logística, KNN, SVM, árboles de decisión, accuracy/precision/recall/F1/AUC-ROC | `notebooks/DS_route/005_Analisis_de_clasificacion.ipynb`, `exercises/classification/Taller_lvl_Rookie_Titanic.ipynb`, `exercises/classification/Taller_lvl_Rookie_Bank_Loan.ipynb` |
-| 10 | Ensambles y Benchmarking de Modelos | Modelos supervisados | Comparar múltiples algoritmos de forma objetiva para seleccionar el mejor | Random Forest, Boosting, XGBoost, validación cruzada k-fold, tabla comparativa de modelos (benchmarking) | `notebooks/backup/modelos_arboles_machine_learning.ipynb`, `notebooks/DS_route/007_Modelos_Analiticos.ipynb` |
-| 11 | Clustering y Segmentación | No supervisado | Agrupar datos sin etiquetas y evaluar la calidad de los clusters | K-Means, jerárquico, DBSCAN, método del codo, Silhouette Score | `notebooks/DS_route/006_Analisis_de_Segmentacion.ipynb`, `notebooks/backup/clustering_tecnicas_niveles.ipynb`, `Retos_AA_8/Sesion_07` |
-| 12 | Reducción de Dimensionalidad y Selección de Variables | No supervisado | Simplificar datasets de alta dimensionalidad preservando información relevante | PCA, varianza explicada, t-SNE (visual), métodos de selección de variables (filtro/wrapper/embedded) | `notebooks/backup/reduccion_dimensionalidad.ipynb`, `notebooks/backup/seleccion_variables_niveles.ipynb` |
-| 13 | Pipeline Completo de ML (End-to-End) | Integración | Construir un pipeline reproducible que encapsule preprocesamiento + modelo | `Pipeline`, `ColumnTransformer`, `cross_val_score`, prevención de data leakage | `notebooks/backup/pipeline_columntransformer_preprocesamiento.ipynb` |
-| 14 | Optimización de Hiperparámetros | Integración | Afinar el mejor modelo del benchmarking con distintas estrategias de búsqueda | Grid Search, Random Search, Optimización Bayesiana (Optuna), comparación de eficiencia | `notebooks/backup/validacion_y_busqueda_hiperparametros.ipynb` |
-| 15 | Arquitecturas de Redes Neuronales y CNN (MNIST) | Deep Learning | Entender arquitecturas de red neuronal y entrenar una CNN para clasificar dígitos escritos a mano | Perceptrón, redes densas (MLP), funciones de activación, backpropagation (intuición), capas convolucionales y de pooling, entrenamiento de una CNN con el dataset MNIST | `notebooks/backup/fundamentos_redes_neuronales.ipynb`, `notebooks/backup/cnn_redes_convolucionales.ipynb` |
-| 16 | LLMs y NLP Aplicado en Python (100% gratuito) | Cierre / Proyecto integrador | Usar un LLM vía API gratuita y un modelo Hugging Face para tareas de NLP reales | Prompting básico con **API gratuita de Google Gemini** (Google AI Studio, sin tarjeta de crédito), pipeline de Hugging Face `transformers` (modelo local) para clasificación de texto y NER | `background/esp/fundamentos de llm.md`, `exercises/nlp/` (a construir), `resources/Sanchez - Clasificacion de textos... BERT.pdf` |
+Se estudian la relación entre negocio, estadística, programación y comunicación; la formulación de preguntas analíticas; Big Data y sus 7 V; CRISP-DM; y las diferencias entre aprendizaje supervisado, no supervisado y por refuerzo. Se revisan Python y Colab y se realiza un microanálisis separando pregunta, datos, cálculo e interpretación. El notebook cierra con un taller guiado de Markdown que incluye encabezados, listas, tablas, enlaces, imágenes, fórmulas, bloques de código, plantilla de análisis y lista de verificación.
 
----
+**Material:** [README](Sesion_01/README.md) · [Notebook](Sesion_01/Sesion_01_Ciencia_de_datos.ipynb) · [Bienvenida y acuerdos](Sesion_01/bienvenida_saludo_acuerdos.md) · [Imagen de bienvenida](Sesion_01/Saludo_Bienvenida.png)
 
-## 3. Detalle por Bloque Temático
+### Sesión 02 — Bases de Python I
 
-### Bloque A — Fundamentos y Herramientas (Sesiones 1–6)
+**Objetivo:** escribir programas básicos con tipos, operadores, decisiones, iteraciones y funciones.
 
-Ciencia de datos, Python, Markdown, Pandas (incluyendo obtención de datos vía Kaggle API) y toda la generación de visualizaciones (estadísticas + geoespaciales con Folium) en un solo bloque de herramientas.
+Se trabajan `str`, `int`, `float` y `bool`; conversiones; operadores aritméticos, relacionales y lógicos; `if`/`elif`/`else`; ciclos `for` y `while`; y funciones con parámetros y retorno. El laboratorio profundiza en métodos de texto, operaciones numéricas, reglas booleanas, parámetros predeterminados, anotaciones de tipo y validación con `ValueError`.
 
-### Bloque B — Preparación y Modelos Supervisados (Sesiones 7–10)
+**Material:** [README](Sesion_02/README.md) · [Notebook](Sesion_02/Sesion_02_Python_I.ipynb)
 
-Estadística aplicada + preprocesamiento, seguido de regresión → clasificación → ensambles/benchmarking. El benchmarking (S10) responde directamente al requerimiento de "ajuste de varios modelos y benchmarking para seleccionar modelos".
+### Sesión 03 — Bases de Python II
 
-### Bloque C — Modelos No Supervisados (Sesiones 11–12)
+**Objetivo:** seleccionar y manipular estructuras de datos apropiadas para análisis.
 
-Clustering y reducción de dimensionalidad.
+Se comparan listas, tuplas, diccionarios y conjuntos; se practican comprehensions, `*args`, `**kwargs`, `lambda`, excepciones y archivos. El laboratorio distingue mutación de copia, emplea métodos de diccionarios y sets, construye una función configurable y explica el costo práctico de buscar elementos en distintas colecciones.
 
-### Bloque D — Integración y Optimización (Sesiones 13–14)
+**Material:** [README](Sesion_03/README.md) · [Notebook](Sesion_03/Sesion_03_Python_II.ipynb)
 
-Pipeline completo (`Pipeline`/`ColumnTransformer`) y las estrategias de tuning pedidas: grilla (Grid Search), aleatoria (Random Search) y bayesiana (Optuna). Nota: "estocástica" se cubre conceptualmente dentro de Random Search (muestreo estocástico del espacio de hiperparámetros), evitando duplicar contenido.
+### Sesión 04 — Pandas I y obtención de datos
 
-### Bloque E — Deep Learning y Cierre (Sesiones 15–16)
+**Objetivo:** cargar, inspeccionar, tipar, seleccionar y filtrar datos tabulares.
 
-Redes neuronales y CNN (MNIST) como introducción a Deep Learning, seguido del cierre con LLMs/NLP usando exclusivamente herramientas gratuitas.
+Se crean `Series` y `DataFrame`; se usan `head`, `shape`, `info`, `describe` y `dtypes`; se leen archivos CSV; y se descarga `world_country.csv` con `kagglehub`. Se practican `loc`, `iloc` y filtros booleanos. El laboratorio aplica accesores `.str`, `.dt` y `.cat`, conversión explícita de tipos, `query`, `assign` y parámetros de `read_csv` útiles en Colab.
 
----
+**Material:** [README](Sesion_04/README.md) · [Notebook](Sesion_04/Sesion_04_Pandas_I_Kaggle.ipynb)
 
-## 4. Formato Estándar de Notebook (Sesiones 2–16)
+### Sesión 05 — Pandas II: Data Wrangling
 
-Para que cada notebook sea "para dummies pero aplicable" y mantenga una narrativa consistente, **todos los notebooks de las Sesiones 2 a 16** seguirán esta misma estructura (la Sesión 1 no tiene notebook, es introductoria). El nivel de detalle técnico de cada método (fórmulas, hiperparámetros, fortalezas/debilidades) sí debe ser riguroso; lo que se simplifica es el *empaquetado y la narrativa*, no el contenido técnico. La profundización adicional queda como iniciativa propia de quien estudia, no como exigencia del curso.
+**Objetivo:** transformar, combinar y resumir tablas de manera controlada.
 
-1. **Portada + Tabla de Contenido**: título de la sesión, objetivo de aprendizaje, y un índice en Markdown con enlaces (anchors) a cada sección del notebook.
-2. **Introducción general (para dummies)**: qué es el tema de la sesión explicado en términos simples, por qué importa, y 2-3 ejemplos de aplicación en el mundo real.
-3. **Por cada método/técnica de la sesión** (ej. en la sesión de clasificación: Logística, KNN, SVM, Árbol de Decisión):
-   - Explicación teórica y técnica detallada: cómo funciona, fórmula/intuición matemática, hiperparámetros clave.
-   - Fortalezas y debilidades del método (tabla comparativa cuando aplique).
-   - Celdas de código **ya escritas** que se ejecutan mientras se explica cada parámetro/paso (no se deja código para el final; se intercala explicación + ejecución).
-   - Un **resumen "para dummies"** al cierre del método: lo mínimo indispensable para poder aplicarlo correctamente sin dominar toda la teoría.
-4. **Ejemplos sencillos de aplicación práctica**: casos reales cortos que muestran cómo se usaría el método fuera del aula.
-5. **Sección de práctica (retos)**: ejercicios en 3 niveles — **básico**, **medio** y **avanzado** — para que cada estudiante practique según su ritmo.
+Se desarrollan `groupby`, `agg`, `merge`, `concat`, `pivot_table`, valores faltantes, operaciones vectorizadas, `map`, `apply` y fechas. El laboratorio compara `agg` con `transform`, calcula diferencias respecto a la media de un grupo y audita uniones con `validate` e `indicator`.
 
-Este formato se aplicará de manera consistente en el Paso 3 (construcción de notebooks), y se detallará sesión por sesión en el Paso 2.
+**Material:** [README](Sesion_05/README.md) · [Notebook](Sesion_05/Sesion_05_Pandas_II_Wrangling.ipynb)
 
----
+### Sesión 06 — Visualización con Matplotlib, Seaborn, Plotly y Folium
 
-## 5. Riesgos / Puntos a Decidir Contigo
+**Objetivo:** construir visualizaciones estáticas, interactivas y geoespaciales.
 
-1. **Densidad de contenido:** Sesiones como la 10 (Ensambles+Benchmarking) o la 15 (Redes Neuronales+CNN) son ambiciosas para 2 horas. En el Paso 2 se acotará el alcance práctico de cada una (ej. en S15 se usará una CNN pequeña y pocas épocas de entrenamiento para que corra en tiempo de clase).
-2. **Dataset para Folium (Sesión 6):** no hay aún un dataset geoespacial en `data/`; se debe elegir o generar uno (ej. ciudades con ventas, sismos, población) — puede salir de Kaggle una vez cubierta la Sesión 4.
-3. **Datasets de Kaggle para Sesiones 7-14:** mencionas que tú los buscarás; en el Paso 2 dejaré marcado en cada sesión qué características debería tener el dataset ideal (tamaño, tipo de variables, si es para regresión/clasificación/clustering) para que la búsqueda en Kaggle sea dirigida.
-4. **Proveedor de LLM (Sesión 16):** se asume **Google Gemini API (free tier)** como principal por ser gratuita, sin tarjeta de crédito y coherente con el entorno de Google Colab. Si prefieres otra opción 100% gratuita (ej. Groq con modelos open-source), lo cambiamos.
-5. **Nivel de partida real de los estudiantes:** si ya tienen experiencia en Python/Excel, las Sesiones 2–3 podrían comprimirse y liberar tiempo para el Bloque D o E.
+Se elaboran histogramas, boxplots, dispersión, barras, mapas de correlación, gráficos interactivos y mapas. Se comparan Matplotlib, Seaborn, Plotly Express y Folium. El laboratorio separa preparación de datos, geometría y presentación; revisa `Figure`/`Axes`, `hue`, transparencia, hover, escalas, títulos y unidades.
 
----
+**Material:** [README](Sesion_06/README.md) · [Notebook](Sesion_06/Sesion_06_Visualizacion.ipynb)
 
-## 6. Detalle por Sesión (Paso 2 — completo)
+### Sesión 07 — Estadística aplicada y preprocesamiento
 
-Cada sesión tiene ahora su propia carpeta con un `README.md` que documenta: objetivo específico, agenda minuto a minuto, contenido técnico a cubrir, dataset(s) sugeridos, retos de práctica en 3 niveles (básico/medio/avanzado) y criterios de evaluación.
+**Objetivo:** describir los datos y preparar variables sin introducir fuga de información.
 
-| # | Sesión | Detalle |
-| --- | --- | --- |
-| 1 | Bienvenida: DS, Python y Markdown *(sin notebook)* | [Sesion_01/README.md](Sesion_01/README.md) |
-| 2 | Bases de Python I | [Sesion_02/README.md](Sesion_02/README.md) |
-| 3 | Bases de Python II | [Sesion_03/README.md](Sesion_03/README.md) |
-| 4 | Pandas I + Kaggle API | [Sesion_04/README.md](Sesion_04/README.md) |
-| 5 | Pandas II — Data Wrangling | [Sesion_05/README.md](Sesion_05/README.md) |
-| 6 | Visualización: Matplotlib, Seaborn, Plotly y Folium | [Sesion_06/README.md](Sesion_06/README.md) |
-| 7 | Estadística Aplicada y Preprocesamiento | [Sesion_07/README.md](Sesion_07/README.md) |
-| 8 | Métodos de Regresión | [Sesion_08/README.md](Sesion_08/README.md) |
-| 9 | Métodos de Clasificación | [Sesion_09/README.md](Sesion_09/README.md) |
-| 10 | Ensambles y Benchmarking de Modelos | [Sesion_10/README.md](Sesion_10/README.md) |
-| 11 | Clustering y Segmentación | [Sesion_11/README.md](Sesion_11/README.md) |
-| 12 | Reducción de Dimensionalidad y Selección de Variables | [Sesion_12/README.md](Sesion_12/README.md) |
-| 13 | Pipeline Completo de ML (End-to-End) | [Sesion_13/README.md](Sesion_13/README.md) |
-| 14 | Optimización de Hiperparámetros | [Sesion_14/README.md](Sesion_14/README.md) |
-| 15 | Arquitecturas de Redes Neuronales y CNN (MNIST) | [Sesion_15/README.md](Sesion_15/README.md) |
-| 16 | LLMs y NLP Aplicado (100% gratuito) | [Sesion_16/README.md](Sesion_16/README.md) |
+Se estudian medidas de centro y dispersión, distribuciones, Pearson y Spearman, outliers mediante IQR, imputación, codificación y escalado. El laboratorio diferencia el tratamiento de variables numéricas, categóricas, ordinales y temporales; muestra las fórmulas de estandarización e IQR; y separa `fit` de `transform` usando únicamente entrenamiento para aprender parámetros.
 
-## 7. Próximos Pasos
+**Material:** [README](Sesion_07/README.md) · [Notebook](Sesion_07/Sesion_07_Estadistica_Preprocesamiento.ipynb)
 
-- **Paso 3 (pendiente):** construir los 15 notebooks (Sesiones 2–16) de estudio, práctica y taller en formato Jupyter/Colab, uno dentro de cada carpeta `Sesion_XX/`, siguiendo al pie de la letra el formato estándar de la sección 4 y el detalle documentado en cada README.
+### Sesión 08 — Métodos de regresión
+
+**Objetivo:** predecir valores continuos y evaluar el error de los modelos.
+
+Con `load_diabetes` se aplican train/test split, regresión lineal, expansión polinómica, Ridge y Lasso. Se comparan MAE, MSE, RMSE y R². El laboratorio deriva la intuición del MSE, calcula gradientes de pendiente e intercepto y ejecuta descenso por gradiente, relacionando tasa de aprendizaje, pérdida, coeficientes y regularización.
+
+**Material:** [README](Sesion_08/README.md) · [Notebook](Sesion_08/Sesion_08_Regresion.ipynb)
+
+### Sesión 09 — Métodos de clasificación
+
+**Objetivo:** predecir categorías y seleccionar métricas y umbrales según el problema.
+
+Se entrenan Regresión Logística, KNN, SVM y Árbol de Decisión sobre `load_breast_cancer`; se estudian matriz de confusión, accuracy, precision, recall y F1; y se presenta clasificación multiclase con `load_wine`. El laboratorio explica sigmoide y log-loss, inspecciona probabilidades y compara varios umbrales de decisión.
+
+**Material:** [README](Sesion_09/README.md) · [Notebook](Sesion_09/Sesion_09_Clasificacion.ipynb)
+
+### Sesión 10 — Ensambles y benchmarking
+
+**Objetivo:** comparar modelos bajo un protocolo común y elegir candidatos estables.
+
+Se estudian Random Forest, Gradient Boosting y XGBoost, junto con validación cruzada y benchmarking. La tabla comparativa considera promedio, desviación y tiempo. El laboratorio conecta residuos, pérdida cuadrática y boosting con descenso por gradiente en el espacio de funciones, y usa folds estratificados comunes para una comparación justa.
+
+**Material:** [README](Sesion_10/README.md) · [Notebook](Sesion_10/Sesion_10_Ensambles_Benchmarking.ipynb)
+
+### Sesión 11 — Clustering y segmentación
+
+**Objetivo:** descubrir grupos sin etiquetas y evaluar su cohesión y separación.
+
+Se aplican K-Means, Método del Codo, clustering jerárquico y DBSCAN sobre datos sintéticos y `Mall_Customers.csv`. Se calculan Silhouette y Davies-Bouldin y se perfilan los grupos. El laboratorio reproduce una iteración de K-Means mediante distancias, asignaciones, centroides e inercia, y revisa los hiperparámetros de cada algoritmo.
+
+**Material:** [README](Sesion_11/README.md) · [Notebook](Sesion_11/Sesion_11_Clustering.ipynb)
+
+### Sesión 12 — Reducción de dimensionalidad y selección de variables
+
+**Objetivo:** reducir complejidad y seleccionar información relevante.
+
+Se desarrollan PCA, t-SNE, métodos de filtro, RFE y Lasso sobre `load_diabetes`. El laboratorio centra los datos, construye una matriz de covarianza y obtiene eigenvectores; luego inspecciona componentes y varianza explicada. Se diferencia entre transformar variables mediante componentes y seleccionar variables originales.
+
+**Material:** [README](Sesion_12/README.md) · [Notebook](Sesion_12/Sesion_12_Reduccion_Dimensionalidad.ipynb)
+
+### Sesión 13 — Pipeline completo de Machine Learning
+
+**Objetivo:** encapsular preprocesamiento y modelo en un flujo reproducible.
+
+Se explica data leakage; se construyen `Pipeline` y `ColumnTransformer`; se valida el flujo completo con `cross_val_score`; y se persiste con `joblib`. El laboratorio profundiza en el contrato `fit`/`transform`/`predict`, en `get_params`/`set_params`, en la sintaxis `paso__parametro` y en los atributos aprendidos.
+
+**Material:** [README](Sesion_13/README.md) · [Notebook](Sesion_13/Sesion_13_Pipeline_End_to_End.ipynb)
+
+### Sesión 14 — Optimización de hiperparámetros
+
+**Objetivo:** explorar configuraciones de un pipeline y comparar costo con desempeño.
+
+Se aplican `GridSearchCV`, `RandomizedSearchCV` y Optuna a un `RandomForestRegressor`. Se comparan R² y tiempo. El laboratorio formula el objetivo de validación cruzada, calcula el número de ajustes requerido por una grilla e inspecciona `cv_results_`, incluyendo ranking, media, desviación, tiempo y parámetros.
+
+**Material:** [README](Sesion_14/README.md) · [Notebook](Sesion_14/Sesion_14_Tuning_Hiperparametros.ipynb)
+
+### Sesión 15 — Redes neuronales y CNN
+
+**Objetivo:** comprender el entrenamiento de redes y clasificar imágenes MNIST.
+
+Se presentan perceptrón, MLP, activaciones, MNIST, capas convolucionales, pooling, Dropout, entrenamiento y matriz de confusión. El laboratorio relaciona logits, softmax y entropía cruzada; calcula gradientes con `GradientTape`; aplica una actualización SGD; y revisa Adam, tasa de aprendizaje, batch, épocas y parámetros entrenables.
+
+**Material:** [README](Sesion_15/README.md) · [Notebook](Sesion_15/Sesion_15_Redes_Neuronales_CNN_MNIST.ipynb)
+
+### Sesión 16 — LLM y NLP aplicado
+
+**Objetivo:** usar modelos preentrenados para clasificación, extracción de entidades y generación controlada.
+
+Se introducen tokenización, embeddings y atención; se configura Gemini con Secrets de Colab; se practican prompts zero-shot y few-shot; y se utilizan pipelines de Hugging Face para sentimiento y NER. El laboratorio inspecciona tokens, IDs, padding, truncamiento y `attention_mask`, y explica parámetros de inferencia como longitud, temperatura, `top_p`, dispositivo y tamaño de lote.
+
+**Material:** [README](Sesion_16/README.md) · [Notebook](Sesion_16/Sesion_16_LLM_NLP.ipynb)
+
+## 4. Formato estándar de notebook (Sesiones 1–16)
+
+Cada notebook organiza el aprendizaje con la siguiente estructura:
+
+1. Título, objetivo y tabla de contenido.
+2. Introducción conceptual en lenguaje sencillo.
+3. Teoría técnica e intuición matemática.
+4. Fortalezas, debilidades y criterios de uso.
+5. Código distribuido en celdas con una responsabilidad clara.
+6. Métodos y propiedades relacionados con el tipo de dato u objeto.
+7. Parámetros, hiperparámetros y atributos aprendidos.
+8. Función objetivo o pérdida cuando corresponde.
+9. Interpretación del resultado y limitaciones.
+10. Retos básico, medio y avanzado.
+
+El descenso por gradiente se desarrolla en regresión, regresión logística, boosting y redes neuronales. K-Means y PCA presentan sus propias funciones objetivo y mecanismos de optimización, sin atribuirles un procedimiento que no utilizan en las implementaciones estudiadas.
+
+## 5. Datos y dependencias
+
+| Sesiones | Datos principales | Dependencias adicionales |
+|---|---|---|
+| 1–3 | Datos creados en el notebook | Python estándar |
+| 4 y 6 | World Coordinates | `kagglehub`, Plotly, Folium |
+| 5 | Tablas sintéticas de ventas | Pandas |
+| 7 | Credit EDA Case Study | `kagglehub`, scikit-learn |
+| 8, 12–14 | `load_diabetes` | scikit-learn, Optuna en S14 |
+| 9–10 | `load_breast_cancer`, `load_wine` | XGBoost en S10 |
+| 11 | `make_blobs`, Mall Customers | SciPy, `kagglehub` |
+| 15 | MNIST | TensorFlow/Keras, GPU opcional |
+| 16 | Reseñas y noticia definidas en el notebook | Gemini, Transformers, modelo descargado |
+
+Las credenciales se almacenan mediante Secrets de Colab. Los tokens y archivos de autenticación no deben incluirse en el repositorio ni escribirse directamente en las celdas.
+
+## 6. Evaluación práctica
+
+Cada sesión finaliza con retos en tres niveles:
+
+- **Básico:** reproduce la técnica central.
+- **Medio:** compara alternativas o combina varios pasos.
+- **Avanzado:** adapta el flujo, justifica decisiones y comunica resultados.
+
+La evaluación considera ejecución correcta, interpretación, elección de métricas, prevención de fuga de información, uso justificado de hiperparámetros y claridad de la documentación.
+
+## 7. Verificación antes de impartir
+
+Los notebooks tienen estructura JSON válida y celdas con sintaxis Python válida. Antes de cada edición del curso se debe ejecutar `Runtime > Run all` en un entorno limpio de Google Colab para comprobar:
+
+- instalación y compatibilidad de librerías;
+- acceso a Kaggle y disponibilidad de archivos;
+- tiempo de ejecución y memoria;
+- disponibilidad de GPU para MNIST;
+- vigencia del SDK y del modelo configurado para Gemini;
+- descarga y carga de modelos de Hugging Face.

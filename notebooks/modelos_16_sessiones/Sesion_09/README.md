@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 09: Métodos de Clasificación
@@ -19,11 +18,19 @@ Construir y evaluar modelos de clasificación para predecir categorías, entendi
 | 4 | 15 min | Support Vector Machine (SVM): teoría, kernels (lineal vs. RBF) a nivel intuitivo |
 | 5 | 15 min | Árbol de Decisión: teoría, interpretabilidad, riesgo de overfitting |
 | 6 | 25 min | Matriz de confusión y métricas: accuracy, precision, recall, F1-score, AUC-ROC — cuándo priorizar cada una |
-| 7 | 20 min | Reto guiado: entrenar y comparar 2 clasificadores sobre el mismo dataset |
+| 7 | 20 min | Laboratorio log-loss/umbrales y comparación de clasificadores |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 1.1, 1.3 y 1.4](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Referencia teórica: [fundamentos de aprendizaje automatico.md § 1.1, 1.3 y 1.4](../../../background/esp/fundamentos%20de%20aprendizaje%20automatico.md).
+
+### Recorrido real del notebook
+
+- Clasificación binaria con `load_breast_cancer`: Logística, KNN, SVM y Árbol.
+- Escalado para los métodos sensibles a distancia y entrenamiento separado de cada estimador.
+- Matriz de confusión, accuracy, precision, recall, F1 y clasificación multiclase con `load_wine`.
+- Laboratorio de sigmoide y log-loss; inspección de probabilidades y efecto de umbrales 0.30, 0.50 y 0.70.
+- Comparación de hiperparámetros: `C`, `penalty`, `n_neighbors`, `kernel`, `gamma`, `max_depth` y criterios del árbol.
 
 **Por cada método (Logística, KNN, SVM, Árbol), cubrir:**
 - Teoría técnica: intuición del algoritmo, hiperparámetros clave (`C`/`penalty` en Logística, `n_neighbors` en KNN, `kernel`/`C`/`gamma` en SVM, `max_depth`/`criterion` en Árbol).
@@ -51,6 +58,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 - Al menos 2 modelos de clasificación entrenados y evaluados con matriz de confusión.
 - Justificación escrita de qué métrica se prioriza y por qué, según el caso de uso.
 - Identificación correcta de si el dataset está balanceado o no.
+- Justificación del umbral de decisión a partir del compromiso entre precision y recall.
 
 ## 🔗 Prerrequisitos
 

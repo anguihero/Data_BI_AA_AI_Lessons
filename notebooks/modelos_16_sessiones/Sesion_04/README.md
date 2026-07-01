@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 04: Pandas I — Series, DataFrames y Obtención de Datos (Kaggle API)
@@ -19,11 +18,19 @@ Cargar, explorar y filtrar datos tabulares con Pandas, y aprender a obtener data
 | 4 | 25 min | **Registro en Kaggle + API**: crear cuenta, generar token (`kaggle.json`), configurar credenciales en Colab, descargar un dataset con `kagglehub` u `opendatasets` |
 | 5 | 20 min | Indexing y filtrado: `.loc`, `.iloc`, filtrado booleano, selección de columnas |
 | 6 | 15 min | Tipos de variable en la práctica: numéricas (continua/discreta), categóricas (nominal/ordinal), temporales — cómo identificarlas con `.dtypes` |
-| 7 | 15 min | Reto guiado: cargar un dataset descargado de Kaggle y hacer una primera exploración |
+| 7 | 15 min | Laboratorio por tipo de variable y reto de exploración de datos |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16).
+
+### Recorrido real del notebook
+
+- Creación e inspección de `Series` y `DataFrame` con `shape`, `columns`, `info` y `describe`.
+- Lectura de CSV en memoria y descarga de `world_country.csv` mediante `kagglehub`.
+- Selección con `loc`/`iloc`, filtros booleanos y clasificación práctica de variables.
+- Laboratorio de accesores por tipo: `.str`, `.dt`, `.cat`, `pd.to_numeric`, `query`, `assign` y selección de columnas.
+- Parámetros de lectura para Colab: `usecols`, `dtype`, `parse_dates`, `na_values`, `encoding`, `sep` y `nrows`.
 
 **Temas técnicos a cubrir con detalle:**
 - Series vs. DataFrame: relación con listas/diccionarios ya vistos en Python.
@@ -36,14 +43,14 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 
 ## 📦 Dataset(s)
 
-- Dataset local ya incluido en el repo para la primera parte: `data/titanic/Titanic_Dataset.csv` o `data/loan/loan_data.csv`.
-- Un dataset a elección del estudiante/instructor descargado en vivo desde Kaggle (criterio sugerido: tabular, < 50MB, con mezcla de variables numéricas y categóricas) para practicar el flujo completo de la API.
+- DataFrames pequeños construidos dentro del notebook para practicar sin dependencias externas.
+- **World Coordinates** (`qramkrishna/world-coordinates`), archivo `world_country.csv`, descargado con `kagglehub`.
 
 ## 🏆 Retos de Práctica
 
-- **Básico:** cargar `Titanic_Dataset.csv` y responder con código: ¿cuántas filas/columnas tiene?, ¿qué columnas tienen valores nulos?, ¿cuáles son categóricas y cuáles numéricas?
-- **Medio:** descargar un dataset propio desde Kaggle usando la API, y reproducir el mismo análisis exploratorio básico (`.info()`, `.describe()`, `.dtypes`).
-- **Avanzado:** con el dataset de Kaggle descargado, filtrar registros con al menos dos condiciones combinadas (`&`/`|`) y seleccionar solo un subconjunto de columnas relevantes, exportando el resultado a un nuevo CSV con `.to_csv()`.
+- **Básico:** inspeccionar `df_paises` o `df_ventas` con `shape`, `dtypes` y métodos descriptivos.
+- **Medio:** descargar otro dataset desde Kaggle y reproducir el análisis exploratorio básico.
+- **Avanzado:** filtrar con condiciones combinadas, seleccionar columnas, aplicar operaciones según el tipo y exportar el resultado con `.to_csv()`.
 
 ## ✅ Criterios de Evaluación
 

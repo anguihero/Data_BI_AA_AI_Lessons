@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 06: Visualización de Datos — Matplotlib, Seaborn, Plotly y Folium
@@ -18,11 +17,19 @@ Generar visualizaciones estáticas, interactivas y geoespaciales a partir de un 
 | 3 | 20 min | Seaborn: `heatmap` (matriz de correlación), `pairplot`, `countplot`, `boxplot` con estilo mejorado |
 | 4 | 25 min | Plotly (Plotly Express): gráficos **interactivos** — `px.scatter`, `px.bar`, `px.line`, `px.histogram`, hover con tooltips |
 | 5 | 25 min | Folium: mapa base, **marcadores** individuales, `folium.plugins.HeatMap` para mapas de calor |
-| 6 | 15 min | Reto guiado: construir un mini-dashboard de 4 gráficos (2 estáticos, 1 interactivo, 1 mapa) sobre un mismo dataset |
+| 6 | 15 min | Laboratorio Figure/Axes y reto con gráficos estáticos, interactivos y geográficos |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16). Por tratarse de una sesión centrada en herramientas de graficación (no de interpretación), cada "método" en este notebook es en realidad una **librería/tipo de gráfico**, con esta estructura: cuándo usarla, fortalezas/debilidades frente a las otras 3, código, y resumen para dummies.
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16). Por tratarse de una sesión centrada en herramientas de graficación, cada bloque presenta cuándo usar una librería o tipo de gráfico, sus parámetros y un ejemplo ejecutable.
+
+### Recorrido real del notebook
+
+- Matplotlib: histogramas, boxplots, dispersión, barras y control `Figure`/`Axes`.
+- Seaborn: histogramas, boxplots y mapa de correlación.
+- Plotly Express: dispersión interactiva y `scatter_geo`.
+- Folium: mapa base, marcadores y `HeatMap` con coordenadas de países.
+- Tabla para elegir gráfico y laboratorio que separa datos, geometría y presentación; incluye `hue`, `marker`, `errorbar`, títulos, ejes y cuadrícula.
 
 **Temas técnicos a cubrir con detalle:**
 - Matplotlib como la base de todo el ecosistema de graficación en Python (Seaborn y Pandas `.plot()` lo usan por debajo).
@@ -35,7 +42,7 @@ Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones
 
 ## 📦 Dataset(s)
 
-- Uno de los datasets ya cargados en sesiones previas (ej. `Salary_Dataset_with_Extra_Features.csv`) para los gráficos estadísticos.
+- Un DataFrame sintético de salarios para los gráficos estadísticos y otro de ventas mensuales para el laboratorio paso a paso.
 - **Geoespacial — "World Coordinates" (Kaggle)**: [qramkrishna/world-coordinates](https://www.kaggle.com/datasets/qramkrishna/world-coordinates?select=world_country.csv) (`world_country.csv`, columnas `latitude`/`longitude` por país), descargado con la API de Kaggle enseñada en la Sesión 04. **Fuente remota alternativa** (sin necesidad de Kaggle): CSV crudo de [q-viper/state-location-coordinates](https://github.com/q-viper/state-location-coordinates) leído directamente con `pd.read_csv(url)`.
 
 ## 🏆 Retos de Práctica

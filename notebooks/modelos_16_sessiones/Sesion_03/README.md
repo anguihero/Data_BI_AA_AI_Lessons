@@ -1,6 +1,5 @@
 ---
 Autor: anmmunozsa@outlook.es
-Nota: Este es material de código abierto diseñado para compartir y aprender colectivamente.
 ---
 
 # Sesión 03: Bases de Python II
@@ -19,11 +18,18 @@ Dominar las estructuras de datos y funciones avanzadas de Python necesarias para
 | 4 | 20 min | Comprehensions (listas y diccionarios) |
 | 5 | 20 min | Funciones avanzadas: `*args`/`**kwargs`, funciones `lambda` |
 | 6 | 15 min | Manejo de excepciones: `try`/`except`/`finally` |
-| 7 | 10 min | Lectura/escritura básica de archivos (`open`, `csv`) como puente hacia Pandas |
+| 7 | 10 min | Archivos y laboratorio de elección, mutación y búsqueda en colecciones |
 
 ## 📚 Contenido y Estructura del Notebook
 
-Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-2–16).
+Sigue el [formato estándar](../ruta.md#4-formato-estándar-de-notebook-sesiones-1–16).
+
+### Recorrido real del notebook
+
+- Listas, tuplas, diccionarios y conjuntos; mutabilidad y acceso.
+- Comprehensions, `*args`, `**kwargs`, `lambda` y manejo de excepciones.
+- Lectura y escritura de un archivo de texto con `with open(...)`.
+- Laboratorio de elección de colecciones, copia frente a mutación, métodos `update`/`get`, pertenencia y costo práctico de búsqueda.
 
 **Temas técnicos a cubrir con detalle:**
 - Diferencia lista (mutable) vs. tupla (inmutable) y cuándo usar cada una.
@@ -48,6 +54,7 @@ No aplica — sigue siendo fundamentos de lenguaje, pero se introduce la lectura
 - Uso correcto de al menos 2 estructuras de datos (lista/diccionario/set).
 - Al menos una comprehension funcional.
 - Manejo de al menos un caso de excepción con `try/except`.
+- Justificación de la estructura elegida para representar o buscar datos.
 
 ## 🔗 Prerrequisitos
 
